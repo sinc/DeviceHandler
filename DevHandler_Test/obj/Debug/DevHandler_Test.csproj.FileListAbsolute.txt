@@ -1,0 +1,7 @@
+D:\work\src\DeviceHandler_0.3\DevHandler_Test\obj\Debug\ResolveAssemblyReference.cache
+D:\work\src\DeviceHandler_0.3\DevHandler_Test\bin\Debug\DevHandler_Test.exe
+D:\work\src\DeviceHandler_0.3\DevHandler_Test\bin\Debug\DevHandler_Test.pdb
+D:\work\src\DeviceHandler_0.3\DevHandler_Test\bin\Debug\DeviceHandler.dll
+D:\work\src\DeviceHandler_0.3\DevHandler_Test\bin\Debug\DeviceHandler.pdb
+D:\work\src\DeviceHandler_0.3\DevHandler_Test\obj\Debug\DevHandler_Test.exe
+D:\work\src\DeviceHandler_0.3\DevHandler_Test\obj\Debug\DevHandler_Test.pdb

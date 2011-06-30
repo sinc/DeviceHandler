@@ -1,0 +1,5 @@
+D:\work\src\DeviceHandler_0.3\DeviceHandler\obj\Debug\ResolveAssemblyReference.cache
+D:\work\src\DeviceHandler_0.3\DeviceHandler\bin\Debug\DeviceHandler.dll
+D:\work\src\DeviceHandler_0.3\DeviceHandler\bin\Debug\DeviceHandler.pdb
+D:\work\src\DeviceHandler_0.3\DeviceHandler\obj\Debug\DeviceHandler.dll
+D:\work\src\DeviceHandler_0.3\DeviceHandler\obj\Debug\DeviceHandler.pdb
