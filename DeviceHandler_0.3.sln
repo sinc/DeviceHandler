@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceHandler", "DeviceHandler\DeviceHandler.csproj", "{6F404D5A-6D9D-4CCA-8651-65FE999E5696}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevHandler_Test", "DevHandler_Test\DevHandler_Test.csproj", "{2484E30F-77F3-477C-BF7F-4DB98C798C48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F404D5A-6D9D-4CCA-8651-65FE999E5696}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F404D5A-6D9D-4CCA-8651-65FE999E5696}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F404D5A-6D9D-4CCA-8651-65FE999E5696}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F404D5A-6D9D-4CCA-8651-65FE999E5696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2484E30F-77F3-477C-BF7F-4DB98C798C48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2484E30F-77F3-477C-BF7F-4DB98C798C48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2484E30F-77F3-477C-BF7F-4DB98C798C48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2484E30F-77F3-477C-BF7F-4DB98C798C48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
