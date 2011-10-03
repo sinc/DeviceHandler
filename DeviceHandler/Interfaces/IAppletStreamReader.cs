@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace DeviceHandler
 {
-    public interface IAppletStreamReader<DataType>
+    interface IAppletStreamReader<DataType>
     {
         /// <summary>
         /// Позиция в потоке

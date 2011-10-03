@@ -3,9 +3,7 @@ using System.Collections.Generic;
 
 namespace DeviceHandler
 {
-    public delegate void NewDataEnabled();
-
-    public interface IAppletStream<DataType>
+    interface IAppletStream<DataType>
     {
         /// <summary>
         /// Длина потока

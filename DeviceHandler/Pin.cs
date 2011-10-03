@@ -18,13 +18,19 @@ namespace DeviceHandler
         /// </summary>
         public abstract bool IsConnect { get; }
 
+        /// <summary>
+        /// Конструктор пина
+        /// </summary>
+        /// <param name="PinName">Имя пина. Оно должно быть уникальным впределах одного апплета</param>
+        /// <param name="applet">Апплет, которому принадлежит пин</param>
         public Pin(string PinName, Applet applet)
         {
             Name = PinName;
         }
 
         /// <summary>
-        /// Присоединить пины
+        /// Присоединить пины.
+        /// Выполняет базовые проверки при подключении.
         /// </summary>
         /// <param name="pin"></param>
         public virtual void Connect(Pin pin)

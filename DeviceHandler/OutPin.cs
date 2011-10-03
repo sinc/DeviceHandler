@@ -19,6 +19,19 @@ namespace DeviceHandler
             m_Stopped = false;
         }
 
+        /// <summary>
+        /// Функция подключения с учетом типизации пинов
+        /// </summary>
+        /// <param name="ConnectedPin"></param>
+        private void Connect(InPin<DataType> ConnectedPin)
+        {
+            if (ConnectedPin.IsConnect)
+                throw new ConnectException("This input pin is already connected.");
+
+            m_ConnectedPins.Add(ConnectedPin);
+            //ConnectedPin.Connect(this, m_Stream);
+        }
+
         public override bool IsConnect
         {
             get { return m_ConnectedPins.Count > 0; }
@@ -33,24 +46,29 @@ namespace DeviceHandler
                 InPin<DataType> inpin = pin as InPin<DataType>;
                 Connect(inpin);
             }
+            catch (ConnectException cex)
+            {
+                throw cex;
+            }
             catch
             {
                 throw new ConnectException("This pins cannot connect");
             }
         }
 
-        private void Connect(InPin<DataType> ConnectedPin)
-        {
-            if (ConnectedPin.IsConnect)
-                throw new ConnectException("This input pin is already connected.");
-
-            m_ConnectedPins.Add(ConnectedPin);
-            //ConnectedPin.Connect(this, m_Stream);
-        }
-
         public override bool Connected(Pin pin)
         {
-            return m_ConnectedPins.Contains(pin as InPin<DataType>);
+            InPin<DataType> inpin;
+            try
+            {
+                inpin = pin as InPin<DataType>;
+            }
+            catch
+            {
+                return false;
+            }
+
+            return m_ConnectedPins.Contains(inpin);
         }
 
         public void Disconnect(InPin<DataType> Pin)
@@ -87,7 +105,7 @@ namespace DeviceHandler
             }
         }
 
-        public IAppletStream<DataType> BaseStream
+        internal IAppletStream<DataType> BaseStream
         {
             get { return m_Stream; }
         }
@@ -98,6 +116,6 @@ namespace DeviceHandler
         /// При подписке на это событие не следует выполнять
         /// в обработчике длительных операций.
         /// </summary>
-        public event EnableNewSample OnNewSampleEnable;
+        internal event EnableNewSample OnNewSampleEnable;
     }
 }

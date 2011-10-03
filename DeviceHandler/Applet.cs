@@ -4,23 +4,6 @@ using System.Linq;
 
 namespace DeviceHandler
 {
-    //Примерчик работы:
-    //class myApplet : Applet<float, float>
-    //{
-    //    public myApplet()
-    //        : base(5, 1)
-    //    {
-    //    }
-
-    //    public override void AppletEngine(IEnumerable<float> data)
-    //    {
-    //        float aver = 0.0f;
-    //        foreach (float f in data)
-    //            aver += f;
-    //        aver /= 5.0;
-    //        OutputPin.Push(aver);
-    //    }
-    //}
     public abstract class Applet: IDisposable
     {
         protected List<Pin> m_InputPins;
@@ -40,6 +23,8 @@ namespace DeviceHandler
         /// апплета зарегистрированы входной и выходной пины.
         /// </summary>
         /// <typeparam name="T">Тип данных пина</typeparam>
+        /// <param name="shift">Сдвиг после чтения пачки данных</param>
+        /// <param name="count">Длина пачки данных</param>
         public InPin<T> RegisterInputPin<T>(string PinName, int shift, int count)
         {
             InPin<T> pin = new InPin<T>(PinName, shift, count, this);
@@ -78,12 +63,12 @@ namespace DeviceHandler
 
         #endregion
 
-        public IEnumerable<Pin> InputPins
+        public virtual IEnumerable<Pin> InputPins
         {
             get { return m_InputPins.ToArray(); }
         }
 
-        public IEnumerable<Pin> OutputPins
+        public virtual IEnumerable<Pin> OutputPins
         {
             get { return m_OutputPins.ToArray(); }
         }
