@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+<<<<<<< HEAD
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
@@ -85,6 +86,22 @@ namespace DevHandler_Test
         {
             m_rnd = new Random((int)DateTime.Now.Ticks);
             m_timer = new System.Threading.Timer(new TimerCallback(
+=======
+using DeviceHandler;
+using System.Threading;
+
+namespace DevHandler_Test
+{
+    class RandomGenerator : SimpleApplet<int, double>
+    {
+        private Random m_rnd;
+        private Timer m_timer;
+
+        public RandomGenerator(GraphBuilder gb): base(1,1, gb)
+        {
+            m_rnd = new Random((int)DateTime.Now.Ticks);
+            m_timer = new Timer(new TimerCallback(
+>>>>>>> efc741a98f33971ae4d5dc05caeb29a8ee67b9c5
                 delegate(Object obj)
                 {
                     AppletEngine(null);
@@ -100,7 +117,11 @@ namespace DevHandler_Test
     class aver : SimpleApplet<double, double>
     {
         public aver(GraphBuilder gb)
+<<<<<<< HEAD
             : base(1, 100, gb)
+=======
+            : base(1, 10, gb)
+>>>>>>> efc741a98f33971ae4d5dc05caeb29a8ee67b9c5
         {
         }
 
@@ -129,4 +150,31 @@ namespace DevHandler_Test
         }
     }
 
+<<<<<<< HEAD
+=======
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            GraphBuilder graph_builder = new GraphBuilder();
+
+            RandomGenerator gen = new RandomGenerator(graph_builder);
+            aver a = new aver(graph_builder);
+            console_printer cp = new console_printer(graph_builder);
+
+            graph_builder.ConnectApplets(gen, a);
+            graph_builder.ConnectApplets(a, cp);
+
+            Thread.Sleep(1000);
+
+            graph_builder.DisconnectApplets(a, cp);
+
+            Thread.Sleep(1000);
+
+            graph_builder.ConnectApplets(a, cp);
+
+            Console.ReadKey();
+        }
+    }
+>>>>>>> efc741a98f33971ae4d5dc05caeb29a8ee67b9c5
 }

@@ -31,28 +31,37 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Reference Include="FTD2XX_NET, Version=1.0.6.0, Culture=neutral, PublicKeyToken=61a8105588f51b1f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\FTD2XX_NET.dll</HintPath>
     </Reference>
+=======
+>>>>>>> efc741a98f33971ae4d5dc05caeb29a8ee67b9c5
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+<<<<<<< HEAD
     <Reference Include="System.Windows.Forms" />
+=======
+>>>>>>> efc741a98f33971ae4d5dc05caeb29a8ee67b9c5
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Applet.cs" />
     <Compile Include="AppletStream.cs" />
     <Compile Include="AppletStreamReader.cs" />
+<<<<<<< HEAD
     <Compile Include="Applets\ChartApplet.cs" />
     <None Include="Applets\ConsolePrinter.cs" />
     <Compile Include="Applets\Drivers\ADIS16209.cs" />
     <Compile Include="Applets\Drivers\common\HighPerformanceTimer.cs" />
     <Compile Include="Applets\Drivers\common\ToBigEndian.cs" />
+=======
+>>>>>>> efc741a98f33971ae4d5dc05caeb29a8ee67b9c5
     <Compile Include="Applets\SimpleApplet.cs" />
     <Compile Include="GraphBuilder.cs" />
     <Compile Include="InPin.cs" />
@@ -62,12 +71,15 @@
     <Compile Include="OutPin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup>
     <ProjectReference Include="..\Chart\Chart.csproj">
       <Project>{6852BE64-C6AB-470A-A8AE-8B7C6A3D082E}</Project>
       <Name>Chart</Name>
     </ProjectReference>
   </ItemGroup>
+=======
+>>>>>>> efc741a98f33971ae4d5dc05caeb29a8ee67b9c5
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

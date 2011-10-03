@@ -48,6 +48,7 @@ namespace DeviceHandler
             Pin src_outpin = SrcApplet.OutputPins.First(pin => pin.Name == SrcPinName);
             Pin dst_inpin = DstApplet.InputPins.First(pin => pin.Name == DstPinName);
 
+<<<<<<< HEAD
             if (src_outpin == null)
             {
                 System.Diagnostics.Debug.Print("Pin {0} is mising", SrcPinName);
@@ -60,6 +61,8 @@ namespace DeviceHandler
                 return false;
             }
 
+=======
+>>>>>>> efc741a98f33971ae4d5dc05caeb29a8ee67b9c5
             try
             {
                 //соединяем
