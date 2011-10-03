@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace DeviceHandler
 {
-    public class ConsolePrinter: Applet
+    /*public class ConsolePrinter: Applet
     {
         public ConsolePrinter()
         {
@@ -17,5 +17,5 @@ namespace DeviceHandler
             foreach (Object obj in data)
                 Console.WriteLine(obj.ToString());
         }
-    }
+    }*/
 }

@@ -14,3 +14,10 @@ D:\DeviceHandler_0.3\DeviceHandler\bin\Debug\Chart.dll
 D:\DeviceHandler_0.3\DeviceHandler\bin\Debug\FTD2XX_NET.dll
 D:\DeviceHandler_0.3\DeviceHandler\bin\Debug\Chart.pdb
 D:\DeviceHandler_0.3\DeviceHandler\obj\Debug\DeviceHandler.pdb
+D:\DeviceHandler\DeviceHandler\obj\Debug\ResolveAssemblyReference.cache
+D:\DeviceHandler\DeviceHandler\obj\Debug\DeviceHandler.dll
+D:\DeviceHandler\DeviceHandler\obj\Debug\DeviceHandler.pdb
+D:\DeviceHandler\DeviceHandler\bin\Debug\DeviceHandler.dll
+D:\DeviceHandler\DeviceHandler\bin\Debug\DeviceHandler.pdb
+D:\DeviceHandler\DeviceHandler\bin\Debug\Chart.dll
+D:\DeviceHandler\DeviceHandler\bin\Debug\Chart.pdb
