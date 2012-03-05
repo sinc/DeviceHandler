@@ -50,6 +50,10 @@ namespace DeviceHandler
             {
                 throw cex;
             }
+            catch
+            {
+                throw new ConnectException("This pins cannot connect");
+            }
         }
 
         public override bool Connected(Pin pin)

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DeviceHandler
 {
-    public class Accelerate
+    public struct Accelerate
     {
         public float Ax { get; private set; }
         public float Ay { get; private set; }

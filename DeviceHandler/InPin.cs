@@ -52,14 +52,13 @@ namespace DeviceHandler
                     delegate(Object obj)
                     {
                         DataType[] buf = new DataType[m_Count];
-
                         while (m_StreamReader.Position + m_Count <= m_Stream.Length)
                         {
-                            m_StreamReader.Read(buf, 0, m_Count);
-                            m_StreamReader.Position += m_Shift;
-
                             if (OnNewDataEnabled != null)
+                            {
+                                m_StreamReader.Read(buf, 0, m_Shift, m_Count);
                                 OnNewDataEnabled(buf);
+                            }
                         }
                         m_Worked = false;
                     }));
@@ -97,6 +96,7 @@ namespace DeviceHandler
             m_ConnectedPin.OnNewSampleEnable -= ConnectedPin_OnNewSampleEnable;
             m_ConnectedPin.Disconnect(this);
             m_ConnectedPin = null;
+            m_StreamReader.Close();
         }
 
         /// <summary>

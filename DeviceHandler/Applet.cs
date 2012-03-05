@@ -12,7 +12,6 @@ namespace DeviceHandler
         public Applet(GraphBuilder graph_builder)
         {
             graph_builder.RegisterApplet(this);
-
             m_InputPins = new List<Pin>();
             m_OutputPins = new List<Pin>();
         }
@@ -28,9 +27,7 @@ namespace DeviceHandler
         public InPin<T> RegisterInputPin<T>(string PinName, int shift, int count)
         {
             InPin<T> pin = new InPin<T>(PinName, shift, count, this);
-
             m_InputPins.Add(pin);
-
             return pin;
         }
 
@@ -44,9 +41,7 @@ namespace DeviceHandler
         public OutPin<T> RegisterOutputPin<T>(string PinName)
         {
             OutPin<T> pin = new OutPin<T>(PinName, this);
-
             m_OutputPins.Add(pin);
-
             return pin;
         }
 

@@ -21,7 +21,6 @@ namespace DeviceHandler
         {
             InputPin = RegisterInputPin<InputDataType>("MainInPin", Shift, Count);
             OutputPin = RegisterOutputPin<OutputDataType>("MainOutPin");
-
             InputPin.OnNewDataEnabled += new NewDataEnabled<InputDataType>(AppletEngine);
         }
 

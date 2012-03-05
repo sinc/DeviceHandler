@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace DeviceHandler
 {
-    interface IAppletStreamReader<DataType>
+    public interface IAppletStreamReader<DataType>
     {
         /// <summary>
         /// Позиция в потоке
@@ -27,14 +27,8 @@ namespace DeviceHandler
         /// </summary>
         /// <param name="buf">Буфер</param>
         /// <param name="index">Смещение в буфере</param>
-        /// <param name="shift">На сколько сместить позицию в потоке</param>
-        /// <param name="count">Число считываемых отсчетов</param>
+        /// <param name="Count">Число считываемых отсчетов</param>
         /// <returns></returns>
-        int Read(DataType[] buf, int index, int shift, int count);
-
-        /// <summary>
-        /// Закрыть чтение из потока
-        /// </summary>
-        void Close();
+        int Read(DataType[] buf, int index, int Count);
     }
 }

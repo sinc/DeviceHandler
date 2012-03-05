@@ -40,18 +40,23 @@ namespace DeviceHandler
         {
             if (!m_Closed)
             {
-                if (Stream.Read(m_InternalBuf, Position++, 0, 1, m_TimeOut) > 0)
+                if (Stream.Read(m_InternalBuf, Position, 0, 1, m_TimeOut) > 0)
+                {
+                    Position++;
                     return m_InternalBuf[0];
+                }
             }
             return default(DataType);
         }
 
-        public int Read(DataType[] buf, int index, int Count)
+        public int Read(DataType[] buf, int index, int shift, int count)
         {
-            if (m_Closed)
+            if (m_Closed || Position + shift >= Stream.Length)
                 return 0;
 
-            return Stream.Read(buf, Position++, index, Count, m_TimeOut);
+            int readBytes = Stream.Read(buf, Position, index, Count, m_TimeOut);
+            Position += readBytes;
+            return readBytes;
         }
 
         public void Close()
