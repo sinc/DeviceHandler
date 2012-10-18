@@ -52,13 +52,16 @@ namespace Chart
 
     public override void Draw(System.Drawing.Graphics g)
     {
-      if (DataY != null)
-        for (int i = 1; i < DataY.Count; i++)
-          g.DrawLine(_pnLine,
-              (float)(_chart.AxisX.GetDisplayValue(DataX[i - 1])),
-              _chart.AxisY.GetDisplayValue(DataY[i - 1]),
-              _chart.AxisX.GetDisplayValue(DataX[i]),
-              _chart.AxisY.GetDisplayValue(DataY[i]));
+        lock (this)
+        {
+            if (DataY != null)
+                for (int i = 1; i < DataY.Count; i++)
+                    g.DrawLine(_pnLine,
+                        (float)(_chart.AxisX.GetDisplayValue(DataX[i - 1])),
+                        _chart.AxisY.GetDisplayValue(DataY[i - 1]),
+                        _chart.AxisX.GetDisplayValue(DataX[i]),
+                        _chart.AxisY.GetDisplayValue(DataY[i]));
+        }
     }
 
     public void AddPoint(double X, double Y)
@@ -69,13 +72,16 @@ namespace Chart
 
     public void SetData(double[] dataY)
     {
-      DataY = new List<double>(dataY);
+        lock (this)
+        {
+            DataY = new List<double>(dataY);
 
-      int count = DataY.Count;
-      DataX = new List<double>();
+            int count = DataY.Count;
+            DataX = new List<double>();
 
-      for (int i = 0; i < count; i++)
-        DataX.Add((double)i);
+            for (int i = 0; i < count; i++)
+                DataX.Add((double)i);
+        }
     }
 
     public void SetData(double[] dataX, double[] dataY)

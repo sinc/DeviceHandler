@@ -6,14 +6,12 @@ namespace DeviceHandler
 {
     public abstract class Applet: IDisposable
     {
-        protected List<Pin> m_InputPins;
-        protected List<Pin> m_OutputPins;
+        protected List<Pin> m_InputPins = new List<Pin>();
+        protected List<Pin> m_OutputPins = new List<Pin>();
 
         public Applet(GraphBuilder graph_builder)
         {
             graph_builder.RegisterApplet(this);
-            m_InputPins = new List<Pin>();
-            m_OutputPins = new List<Pin>();
         }
 
         /// <summary>
@@ -31,6 +29,11 @@ namespace DeviceHandler
             return pin;
         }
 
+        public InPin<T> RegisterInputPin<T>(int shift, int count)
+        {
+            return RegisterInputPin<T>("MainInPin", shift, count);
+        }
+
         /// <summary>
         /// Чтобы пины были доступны для подключения GraphBuilder`ом
         /// их необходимо зарегистрировать. По умолчанию у каждого
@@ -43,6 +46,11 @@ namespace DeviceHandler
             OutPin<T> pin = new OutPin<T>(PinName, this);
             m_OutputPins.Add(pin);
             return pin;
+        }
+
+        public OutPin<T> RegisterOutputPin<T>()
+        {
+            return RegisterOutputPin<T>("MainOutPin");
         }
 
         #region IDisposable Members

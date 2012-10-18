@@ -5,13 +5,15 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6F404D5A-6D9D-4CCA-8651-65FE999E5696}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{721F64BA-6DFD-4470-B97D-0F84A857C67E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DeviceHandler</RootNamespace>
-    <AssemblyName>DeviceHandler</AssemblyName>
+    <RootNamespace>Defectoscope</RootNamespace>
+    <AssemblyName>Defectoscope</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,41 +37,28 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\FTD2XX_NET.dll</HintPath>
     </Reference>
-    <Reference Include="mathlib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\mathlib.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Applet.cs" />
-    <Compile Include="AppletStream.cs" />
-    <Compile Include="AppletStreamReader.cs" />
-    <Compile Include="Applets\AllanDetectorApplet.cs" />
-    <Compile Include="Applets\DefectoscopeApplet.cs" />
-    <Compile Include="Applets\Drivers\ADIS16209.cs" />
-    <Compile Include="Applets\Drivers\CHDDriver.cs" />
-    <Compile Include="Applets\Drivers\common\crc8.cs" />
-    <Compile Include="Applets\Drivers\common\HighPerformanceTimer.cs" />
-    <Compile Include="Applets\Drivers\common\ToBigEndian.cs" />
-    <Compile Include="Applets\Drivers\FTDIBulkDriver.cs" />
-    <Compile Include="Applets\FileWriteApplet.cs" />
-    <Compile Include="Applets\MagnetizationRestoreApplet.cs" />
-    <Compile Include="Applets\SimpleApplet.cs" />
-    <Compile Include="Applets\DipoleRestoreApplet.cs" />
-    <Compile Include="GraphBuilder.cs" />
-    <Compile Include="InPin.cs" />
-    <Compile Include="Interfaces\IAppletStream.cs" />
-    <Compile Include="Interfaces\IAppletStreamReader.cs" />
-    <Compile Include="Pin.cs" />
-    <Compile Include="OutPin.cs" />
+    <Compile Include="mainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="optForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +66,19 @@
       <Project>{6852BE64-C6AB-470A-A8AE-8B7C6A3D082E}</Project>
       <Name>Chart</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DeviceHandler\DeviceHandler.csproj">
+      <Project>{6F404D5A-6D9D-4CCA-8651-65FE999E5696}</Project>
+      <Name>DeviceHandler</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="mainForm.resx">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="optForm.resx">
+      <DependentUpon>optForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

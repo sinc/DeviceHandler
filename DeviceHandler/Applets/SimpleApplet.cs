@@ -7,8 +7,8 @@ namespace DeviceHandler
 {
     public abstract class SimpleApplet<InputDataType, OutputDataType>: Applet
     {
-        protected InPin<InputDataType> InputPin { get; private set; }
-        protected OutPin<OutputDataType> OutputPin { get; private set; }
+        private InPin<InputDataType> InputPin { get; set; }
+        private OutPin<OutputDataType> OutputPin { get; set; }
 
         /// <summary>
         /// Конструктор апплета.
@@ -21,13 +21,18 @@ namespace DeviceHandler
         {
             InputPin = RegisterInputPin<InputDataType>("MainInPin", Shift, Count);
             OutputPin = RegisterOutputPin<OutputDataType>("MainOutPin");
-            InputPin.OnNewDataEnabled += new NewDataEnabled<InputDataType>(AppletEngine);
+            InputPin.OnNewDataEnabled += new NewDataEnabled<InputDataType>(InputPin_OnNewDataEnabled);
+        }
+
+        private void InputPin_OnNewDataEnabled(IEnumerable<InputDataType> data)
+        {
+            OutputPin.Push(AppletEngine(data));
         }
 
         /// <summary>
         /// После наследования от класса Applet нужно перегрузить эту функцию
         /// </summary>
         /// <param name="data"></param>
-        protected abstract void AppletEngine(IEnumerable<InputDataType> data);
+        protected abstract OutputDataType AppletEngine(IEnumerable<InputDataType> data);
     }
 }

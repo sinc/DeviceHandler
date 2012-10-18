@@ -7,6 +7,11 @@ namespace DeviceHandler
     interface IAppletStreamReader<DataType>
     {
         /// <summary>
+        /// открыт ли поток для чтения
+        /// </summary>
+        bool isOpened { get; }
+
+        /// <summary>
         /// Позиция в потоке
         /// </summary>
         int Position { get; set; }

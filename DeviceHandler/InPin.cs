@@ -14,13 +14,13 @@ namespace DeviceHandler
         private OutPin<DataType> m_ConnectedPin;
         private int m_Shift;
         private int m_Count;
-        private volatile bool m_Worked;
+        private volatile bool m_Working;
 
         public InPin(string PinName, int shift, int count, Applet applet): base(PinName, applet)
         {
             m_Shift = shift;
             m_Count = count;
-            m_Worked = false;
+            m_Working = false;
         }
 
         private void Connect(OutPin<DataType> ConnectedPin)
@@ -45,14 +45,14 @@ namespace DeviceHandler
         private void ConnectedPin_OnNewSampleEnable()
         {
             //Если поток-обработчик не работает уже
-            if (m_StreamReader.Position + m_Count <= m_Stream.Length && !m_Worked)
+            if (m_StreamReader.Position + m_Count <= m_Stream.Length && !m_Working)
             {
-                m_Worked = true;
+                m_Working = true;
                 ThreadPool.QueueUserWorkItem(new WaitCallback(
                     delegate(Object obj)
                     {
                         DataType[] buf = new DataType[m_Count];
-                        while (m_StreamReader.Position + m_Count <= m_Stream.Length)
+                        while (m_StreamReader.Position + m_Count <= m_Stream.Length && m_StreamReader.isOpened)
                         {
                             if (OnNewDataEnabled != null)
                             {
@@ -60,7 +60,7 @@ namespace DeviceHandler
                                 OnNewDataEnabled(buf);
                             }
                         }
-                        m_Worked = false;
+                        m_Working = false;
                     }));
             }
         }
@@ -94,9 +94,11 @@ namespace DeviceHandler
         {
             //отписываемся от события
             m_ConnectedPin.OnNewSampleEnable -= ConnectedPin_OnNewSampleEnable;
+            //закрываем поток для чтения
+            m_StreamReader.Close();
             m_ConnectedPin.Disconnect(this);
             m_ConnectedPin = null;
-            m_StreamReader.Close();
+            m_StreamReader = null;
         }
 
         /// <summary>

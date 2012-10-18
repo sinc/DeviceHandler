@@ -6,11 +6,10 @@ namespace DeviceHandler
 {
     public class GraphBuilder: IDisposable
     {
-        private List<Applet> m_Applets;
+        private List<Applet> m_Applets = new List<Applet>();
 
         public GraphBuilder()
         {
-            m_Applets = new List<Applet>();
         }
 
         /// <summary>

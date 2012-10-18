@@ -51,11 +51,11 @@ namespace DeviceHandler
 
         public int Read(DataType[] buf, int index, int shift, int count)
         {
-            if (m_Closed || Position + shift >= Stream.Length)
+            if (m_Closed || Position + count > Stream.Length)
                 return 0;
 
-            int readBytes = Stream.Read(buf, Position, index, Count, m_TimeOut);
-            Position += readBytes;
+            int readBytes = Stream.Read(buf, Position, index, count, m_TimeOut);
+            Position += shift;
             return readBytes;
         }
 
@@ -63,6 +63,11 @@ namespace DeviceHandler
         {
             m_Closed = true;
             Stream = null;
+        }
+
+        public bool isOpened
+        {
+            get { bool f = m_Closed; return !f; }
         }
 
         #endregion
