@@ -87,9 +87,9 @@ namespace DeviceHandler
 
         void mainIn_OnNewDataEnabled(IEnumerable<CHDSample> data)
         {
-            m_mainChartSeriesCh1.SetData(data.Select(s => s.hall[0]).ToArray());
-            m_mainChartSeriesCh2.SetData(data.Select(s => s.hall[1]).ToArray());
-            m_mainChartSeriesCh3.SetData(data.Select(s => s.hall[2]).ToArray());
+            m_mainChartSeriesCh1.SetData(data.Select(s => s.x).ToArray());
+            m_mainChartSeriesCh2.SetData(data.Select(s => s.y).ToArray());
+            //m_mainChartSeriesCh3.SetData(data.Select(s => s.hall[2]).ToArray());
             m_mainChartPanel.Chart.AutoFit();
         }
     }
